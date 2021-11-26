@@ -1,2 +1,2 @@
 # rechtstexte
-REDAXO-Rechtstexte-Addon erecht24 premium
+🐣 REDAXO-Rechtstexte-Addon für erecht24 premium
