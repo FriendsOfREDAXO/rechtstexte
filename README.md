@@ -53,8 +53,8 @@ if (rex_erecht24::hasText($id, 'imprint')) {
 ### Verfügbare Text-Typen
 
 - `imprint` - Impressum
-- `privacy_policy` - Datenschutzerklärung
-- `privacy_policy_social_media` - Datenschutzerklärung Social Media
+- `privacyPolicy` - Datenschutzerklärung
+- `privacyPolicySocialMedia` - Datenschutzerklärung Social Media
 
 ### Sprache wählen
 
