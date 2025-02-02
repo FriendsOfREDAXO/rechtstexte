@@ -2,7 +2,11 @@
 
 Dieses Addon ermöglicht die einfache Integration von Rechtstexten (Impressum, Datenschutzerklärung) aus dem eRecht24 Projekt Manager in REDAXO.
 
->Dieses Addon wurde nicht von eRecht24 entwickelt
+☝️ Dieses Addon wurde nicht von eRecht24 entwickelt und wird auch nicht von eRecht24 supportet. 
+
+Für Fragen und Hilfe zum AddOn bitte in [Slack](https://redaxo.org/support/slack/) melden.
+
+Bei Fehlern und techniscen Problemen bitte Issue bei GitHub anlegen. 
 
 ## Über eRecht24 
 eRecht24 ist ein deutscher Anbieter bekannt für sein Angebot für rechtssichere Texte, insbesondere für Impressum und Datenschutzerklärungen, die speziell für Webseitenbetreiber, Online-Shops und Unternehmen erstellt werden. Die Plattform bietet einen Projekt-Manager, mit dem Nutzer individuelle Rechtstexte generieren und automatisch aktualisieren lassen können. Weitere Dienste und Tutorials komplettieren das Angebot auch abseits des Webs. 
