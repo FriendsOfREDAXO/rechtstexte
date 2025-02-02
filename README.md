@@ -27,7 +27,7 @@ Mehr Informationen unter: [https://www.e-recht24.de](https://www.e-recht24.de)
 1. Im [eRecht24 Projekt Manager](https://www.e-recht24.de/mitglieder/tools/projekt-manager/) ein neues Projekt anlegen.
 2. Texte für Impressum und Datenschutzerklärung über eRecht24 erstellen.
 3. API-Schlüssel über das Zahnradsymbol des Projekts generieren.
-4. In REDAXO unter eRecht24 > Einstellungen:
+4. In REDAXO unter eRecht24 Rechtstexte > Einstellungen:
    - Domain eintragen
    - API-Schlüssel einfügen
    - Speichern
