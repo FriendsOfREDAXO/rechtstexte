@@ -15,7 +15,7 @@ Mehr Informationen unter: [https://www.e-recht24.de](https://www.e-recht24.de)
 
 ## Features
 
-- Aktualisierung der Texte via Push API von eRecht24
+- Aktualisierung der Texte via Push API von eRecht24 (Sync-Button)
 - Unterstützung mehrerer Domains
 - Mehrsprachige Texte (DE/EN)
 - Einfache Integration via PHP-Methoden
