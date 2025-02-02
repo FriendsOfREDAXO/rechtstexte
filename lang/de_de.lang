@@ -1,5 +1,7 @@
 erecht24 = eRecht24 Rechtstexte
-erecht24_title = eRecht24 Textverwaltung
+erecht24_title = eRecht24 Rechtstexte
+erecht24_help = Hilfe
+
 
 # Navigation
 erecht24_settings = Einstellungen
