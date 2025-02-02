@@ -1,0 +1,6 @@
+{
+    "require": {
+        "erecht24/rechtstexte-sdk": "^1.0",
+        "php": ">=8.2"
+    }
+}

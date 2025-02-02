@@ -1,0 +1,67 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "35bbd731398ca92ff10d0b57bc8d278d",
+    "packages": [
+        {
+            "name": "erecht24/rechtstexte-sdk",
+            "version": "1.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eRecht24/rechtstexte-sdk.git",
+                "reference": "8d3de7e73c83a3287b1113ab6b7d4abfaf277900"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eRecht24/rechtstexte-sdk/zipball/8d3de7e73c83a3287b1113ab6b7d4abfaf277900",
+                "reference": "8d3de7e73c83a3287b1113ab6b7d4abfaf277900",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "eRecht24\\RechtstexteSDK\\": "src/RechtstexteSDK/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "eRecht24 GmbH & Co. KG",
+                    "email": "api@e-recht24.de",
+                    "homepage": "https://api.e-recht24.de"
+                }
+            ],
+            "description": "API client library for eRecht24 Rechtstexte-API",
+            "support": {
+                "issues": "https://github.com/eRecht24/rechtstexte-sdk/issues",
+                "source": "https://github.com/eRecht24/rechtstexte-sdk/tree/1.0.7"
+            },
+            "time": "2022-03-02T18:22:26+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {},
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=8.2"
+    },
+    "platform-dev": {},
+    "plugin-api-version": "2.6.0"
+}
