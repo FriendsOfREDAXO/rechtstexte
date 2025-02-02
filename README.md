@@ -76,7 +76,6 @@ Die Texte werden automatisch via Push-API von eRecht24 aktualisiert, sobald sie 
 Das Addon unterstützt mehrere Domains. Jede Domain benötigt:
 1. Ein eigenes Projekt im eRecht24 Projekt Manager.
 2. Einen eigenen API-Schlüssel.
-3. Eine eigene ID für die Integration via PHP.
 
 
 ## Rechtliche Hinweise
