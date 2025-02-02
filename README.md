@@ -96,10 +96,12 @@ REDAXO-Code-Bestadntreile fallen unter MIT-Lizenz. Api-spezifischer Code fältt 
 [Thomas Skerbis](https://github.com/skerbis)
 
 Sponsors: 
-[KLXM Crossmedia GmbH](https://klxm.de)
-[Marco Hanke](https://github.com/marcohanke)
+
+- [KLXM Crossmedia GmbH](https://klxm.de)
+- [Marco Hanke](https://github.com/marcohanke)
 
 Dank an: 
+
 [https://www.e-recht24.de](https://www.e-recht24.de)
 
 
