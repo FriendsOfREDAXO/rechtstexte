@@ -11,11 +11,10 @@ Mehr Informationen unter: [https://www.e-recht24.de](https://www.e-recht24.de)
 
 ## Features
 
-- Automatische Aktualisierung der Texte via Push API von eRecht24
+- Aktualisierung der Texte via Push API von eRecht24
 - Unterstützung mehrerer Domains
 - Mehrsprachige Texte (DE/EN)
 - Einfache Integration via PHP-Methoden
-- Automatische Push-Benachrichtigungen bei Textänderungen
 - Nutzung der eRecht24 SDK
 
 ## Installation
