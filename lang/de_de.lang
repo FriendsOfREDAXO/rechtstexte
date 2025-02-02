@@ -1,0 +1,47 @@
+erecht24 = eRecht24 Rechtstexte
+erecht24_title = eRecht24 Textverwaltung
+
+# Navigation
+erecht24_settings = Einstellungen
+
+# Domains
+erecht24_domains = Registrierte Domains
+erecht24_id = ID
+erecht24_domain = Domain
+erecht24_api_key = API-Schlüssel
+erecht24_client_id = Client ID
+erecht24_last_update = Letzte Änderung
+erecht24_last_fetch = Letzter Abruf
+erecht24_no_domains = Keine Domains eingerichtet
+erecht24_add_domain = Domain hinzufügen
+erecht24_edit_domain = Domain bearbeiten
+erecht24_domain_not_found = Domain nicht gefunden
+
+# Aktionen
+erecht24_preview = Vorschau
+erecht24_test = Test
+erecht24_delete = Löschen
+erecht24_save = Speichern
+erecht24_delete_confirm = Domain wirklich löschen?
+erecht24_code_example = Code-Beispiel
+
+# Status
+erecht24_missing_fields = Bitte alle Pflichtfelder ausfüllen.
+erecht24_domain_added = Domain wurde hinzugefügt.
+erecht24_domain_updated = Domain wurde aktualisiert.
+erecht24_domain_deleted = Domain wurde gelöscht.
+erecht24_text_updated = Text wurde aktualisiert.
+erecht24_no_texts = Noch keine Texte vorhanden
+
+# Test
+erecht24_test_info = Verbindungstest für diese Domain durchführen
+erecht24_test_actions = Test-Aktionen
+erecht24_test_execute = Test durchführen
+erecht24_test_success = Push-Verbindung erfolgreich getestet! eRecht24 hat mit "pong" geantwortet.
+erecht24_test_error = Fehler beim Testen der Push-Verbindung
+erecht24_test_log = Test-Log
+erecht24_no_log_entries = Keine Log-Einträge vorhanden
+erecht24_push_url = Push-URL
+
+# Vorschau
+erecht24_preview_title = Text-Vorschau

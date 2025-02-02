@@ -1,0 +1,19 @@
+package: erecht24
+version: '1.0.0'
+author: YourName
+
+page:
+    title: 'translate:erecht24'
+    perm: admin
+    icon: rex-icon fa-legal
+    subpages:
+        settings: { title: 'translate:settings' }
+        preview: { title: 'translate:preview', hidden: true }
+        test: { title: 'translate:test', hidden: true }
+        help: { title: 'translate:help', subPath: README.md, itemClass: 'pull-right' }
+
+requires:
+    redaxo: '^5.13'
+    php:
+        version: '>=8.2'
+        extensions: [curl, json]
