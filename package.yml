@@ -1,5 +1,5 @@
 package: erecht24
-version: '1.0.0'
+version: '1.0.0-beta1'
 author: YourName
 
 page:
@@ -11,6 +11,8 @@ page:
         preview: { title: 'translate:preview', hidden: true }
         test: { title: 'translate:test', hidden: true }
         help: { title: 'translate:help', subPath: README.md, itemClass: 'pull-right' }
+        help: { title: 'translate:license', subPath: vendor/README.md, itemClass: 'pull-right' }
+
 
 requires:
     redaxo: '^5.13'
