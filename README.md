@@ -2,12 +2,12 @@
 
 Dieses Addon ermöglicht die einfache Integration von Rechtstexten (Impressum, Datenschutzerklärung) aus dem eRecht24 Projekt Manager in REDAXO.
 
-
-## Rechtliche Hinweise
-
 **Dieses Addon wurde nicht von eRecht24 entwickelt.** 
-Die API und das SDK von eRecht24 unterliegen den API-Nutzungsbedingungen von eRecht24 GmbH & Co. KG. Weitere Informationen zur API-Nutzung finden sich im Vendor-Ordner.
-REDAXO-Code-Bestadntreile fallen unter MIT-Lizenz. Api-spezifischer Code fältt unter der eRecht24 Lizenz.
+
+## Über eRecht24 
+eRecht24 ist ein deutscher Anbieter bekannt für sein Angebot für rechtssichere Texte, insbesondere für Impressum und Datenschutzerklärungen, die speziell für Webseitenbetreiber, Online-Shops und Unternehmen erstellt werden. Die Plattform bietet einen Projekt-Manager, mit dem Nutzer individuelle Rechtstexte generieren und automatisch aktualisieren lassen können. Weitere Dienste und Tutorials komplettieren das Angebot auch abseits des Webs. 
+Mehr Informationen unter: [https://www.e-recht24.de](https://www.e-recht24.de)
+
 
 ## Features
 
@@ -79,7 +79,30 @@ Das Addon unterstützt mehrere Domains. Jede Domain benötigt:
 2. Einen eigenen API-Schlüssel.
 3. Eine eigene ID für die Integration via PHP.
 
-## Support & Bugs
 
-Bei Problemen bitte ein Issue auf GitHub erstellen.
+## Rechtliche Hinweise
+Die API und das SDK von eRecht24 unterliegen den API-Nutzungsbedingungen von eRecht24 GmbH & Co. KG. Weitere Informationen zur API-Nutzung finden sich im Vendor-Ordner.
+REDAXO-Code-Bestadntreile fallen unter MIT-Lizenz. Api-spezifischer Code fältt unter der eRecht24 Lizenz.
+
+## Autor
+
+**Friends Of REDAXO**
+
+* http://www.redaxo.org
+* https://github.com/FriendsOfREDAXO
+
+**Projektleitung**
+
+[Thomas Skerbis](https://github.com/skerbis)
+
+Sponsors: 
+[KLXM Crossmedia GmbH](https://klxm.de)
+[Marco Hanke](https://github.com/marcohanke)
+
+Dank an: 
+[https://www.e-recht24.de](https://www.e-recht24.de)
+
+
+
+
 
