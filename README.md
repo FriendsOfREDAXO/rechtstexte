@@ -38,15 +38,22 @@ Mehr Informationen unter: [https://www.e-recht24.de](https://www.e-recht24.de)
 
 ## Verwendung
 
-Die Rechtstexte werden über eine einheitliche PHP-Schnittstelle eingebunden. Jede Domain erhält eine eigene ID, die für den Abruf der Texte verwendet wird.
+Die Rechtstexte werden über eine einheitliche PHP-Schnittstelle eingebunden. Es können wahlweise die Domain (string) oder die ID (int) zum Abruf verwendet werden. 
 
 ### Text-Typen prüfen und ausgeben
 
 ```php
+$id = 1;
+
 // Prüfen, ob Text vorhanden ist
 if (rex_erecht24::hasText($id, 'imprint')) {
     // Text ausgeben
     echo rex_erecht24::getText($id, 'imprint');
+}
+// Auswahl nach Domain
+if (rex_erecht24::hasText('domain.tld', 'imprint')) {
+    // Text ausgeben
+    echo rex_erecht24::getText('domain.tld', 'imprint');
 }
 ```
 
@@ -59,8 +66,10 @@ if (rex_erecht24::hasText($id, 'imprint')) {
 ### Sprache wählen
 
 ```php
-// Deutsche Version (Standard)
-echo rex_erecht24::getText($id, 'imprint', 'de');
+// Deutsche Version (Standard) hier mit Abruf per Domain 
+echo rex_erecht24::getText('domain.tld', 'imprint', 'de');
+
+$id = 1;
 
 // Englische Version
 echo rex_erecht24::getText($id, 'imprint', 'en');
