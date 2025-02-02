@@ -3,8 +3,8 @@ class rex_erecht24
 {
     private static $validTypes = [
         'imprint',
-        'privacy_policy',
-        'privacy_policy_social_media'
+        'privacyPolicy',
+        'privacyPolicySocialMedia'
     ];
 
     /**
