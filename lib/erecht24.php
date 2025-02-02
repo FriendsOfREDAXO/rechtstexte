@@ -8,26 +8,22 @@ class rex_erecht24
     ];
 
     /**
-     * Prüft ob für die angegebene Domain und den Typ ein Text existiert
+     * Prüft ob für die angegebene ID/Domain und den Typ ein Text existiert
      *
-     * @param int $id ID des Domain-Eintrags
+     * @param int|string $identifier ID oder Domain des Eintrags
      * @param string $type Art des Texts (imprint, privacy_policy, privacy_policy_social_media)
      * @param string $lang Sprache (de, en) - optional für spezifische Sprachprüfung
      * @return bool
      */
-    public static function hasText(int $id, string $type, string $lang = ''): bool 
+    public static function hasText(int|string $identifier, string $type, string $lang = ''): bool 
     {
         try {
             if (!in_array($type, self::$validTypes)) {
                 throw new rex_exception('Invalid text type: ' . $type);
             }
 
-            // Get domain first
-            $sql = rex_sql::factory();
-            $domain = $sql->setQuery(
-                'SELECT domain FROM '.rex::getTable('erecht24').' WHERE id = :id',
-                ['id' => $id]
-            )->getValue('domain');
+            // Get domain
+            $domain = self::getDomain($identifier);
             
             if (!$domain) {
                 return false;
@@ -65,26 +61,22 @@ class rex_erecht24
     }
 
     /**
-     * Gibt den rechtlichen Text für die angegebene Domain/ID und den Typ zurück
+     * Gibt den rechtlichen Text für die angegebene ID/Domain und den Typ zurück
      *
-     * @param int $id ID des Domain-Eintrags
+     * @param int|string $identifier ID oder Domain des Eintrags
      * @param string $type Art des Texts (imprint, privacy_policy, privacy_policy_social_media)
      * @param string $lang Sprache (de, en)
      * @return string|null Text oder null wenn nicht gefunden
      */
-    public static function getText(int $id, string $type, string $lang = 'de'): ?string 
+    public static function getText(int|string $identifier, string $type, string $lang = 'de'): ?string 
     {
         try {
             if (!in_array($type, self::$validTypes)) {
                 throw new rex_exception('Invalid text type: ' . $type);
             }
 
-            // Get domain first
-            $sql = rex_sql::factory();
-            $domain = $sql->setQuery(
-                'SELECT domain FROM '.rex::getTable('erecht24').' WHERE id = :id',
-                ['id' => $id]
-            )->getValue('domain');
+            // Get domain
+            $domain = self::getDomain($identifier);
             
             if (!$domain) {
                 return null;
@@ -114,5 +106,31 @@ class rex_erecht24
     public static function getTypes(): array
     {
         return self::$validTypes;
+    }
+
+    /**
+     * Ermittelt die Domain anhand der ID oder Domain
+     * 
+     * @param int|string $identifier ID oder Domain des Eintrags
+     * @return string|null Domain oder null wenn nicht gefunden
+     */
+    private static function getDomain(int|string $identifier): ?string
+    {
+        $sql = rex_sql::factory();
+
+        if (is_int($identifier)) {
+            return $sql->setQuery(
+                'SELECT domain FROM '.rex::getTable('erecht24').' WHERE id = :id',
+                ['id' => $identifier]
+            )->getValue('domain');
+        }
+
+        // Prüfen ob Domain existiert
+        $exists = $sql->setQuery(
+            'SELECT 1 FROM '.rex::getTable('erecht24').' WHERE domain = :domain',
+            ['domain' => $identifier]
+        )->getRows() > 0;
+
+        return $exists ? $identifier : null;
     }
 }
