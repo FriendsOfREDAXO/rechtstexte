@@ -15,7 +15,7 @@ page:
 
 
 requires:
-    redaxo: '^5.13'
+    redaxo: '^5.18'
     php:
         version: '>=8.2'
         extensions: [curl, json]
