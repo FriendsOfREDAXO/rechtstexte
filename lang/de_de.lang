@@ -14,6 +14,7 @@ erecht24_api_key = API-Schlüssel
 erecht24_client_id = Client ID
 erecht24_last_update = Letzte Änderung
 erecht24_last_fetch = Letzter Abruf
+erecht24_dunctions = Aktionen
 erecht24_no_domains = Keine Domains eingerichtet
 erecht24_add_domain = Domain hinzufügen
 erecht24_edit_domain = Domain bearbeiten
