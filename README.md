@@ -1,4 +1,4 @@
-# REDAXO eRecht24 Rechtestexte
+# REDAXO eRecht24 Rechtstexte
 
 Dieses Addon ermöglicht die einfache Integration von Rechtstexten (Impressum, Datenschutzerklärung) aus dem eRecht24 Projekt Manager in REDAXO.
 
