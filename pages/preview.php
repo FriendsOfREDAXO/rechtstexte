@@ -25,7 +25,7 @@ $content .= '<i class="rex-icon fa-arrow-left"></i> ' . rex_i18n::msg('back') . 
 $content .= '</div>';
 
 // Domain Info Box
-$content .= '<div class="alert alert-info">';
+$content .= '<div class="panel panel-default">';
 $content .= '<h4>Domain: ' . rex_escape($domain['domain']) . ' (ID: ' . $domain['id'] . ')</h4>';
 $content .= '<p class="help-block"><strong>' . $addon->i18n('code_example') . ':</strong></p>';
 $content .= '<pre><code>use FriendsOfRedaxo\eRecht24\eRecht24;
@@ -52,7 +52,7 @@ if (count($texts) > 0) {
       $content .= '<div role="tabpanel" class="tab-pane ' . ($index === 0 ? 'active' : '') . '" id="tab-' . $text['type'] . '">';
       
       // Code example for this type
-      $content .= '<div class="alert alert-info" style="margin-top: 20px;">';
+      $content .= '<div class="panel panel-default" style="margin-top: 20px;">';
       $content .= '<pre><code>use FriendsOfRedaxo\eRecht24\eRecht24;
 
 echo eRecht24::getText(' . $domain['id'] . ', \'' . $text['type'] . '\');</code></pre>';
