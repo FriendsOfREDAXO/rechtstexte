@@ -85,7 +85,7 @@ if (eRecht24::hasText($id, 'imprint', 'en')) {
 }
 ```
 
-### Integration in Templates
+### Integration in Module 
 ```php
 use FriendsOfRedaxo\eRecht24\eRecht24;
 
@@ -107,6 +107,9 @@ if (eRecht24::hasText($domain, 'privacyPolicy', $language)) {
     echo '</div>';
 }
 ```
+
+> Tipp: Als Platzhalter im XoutputFiler-AddOn verwenden.
+
 
 ### Programmatische Verwaltung
 ```php
