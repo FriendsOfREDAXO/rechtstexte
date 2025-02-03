@@ -27,7 +27,7 @@ use rex_sql;
 class eRecht24Client 
 {
    public const PLUGIN_KEY = 'ML7mWFmozzpDNDbUtYUM7UghXCsi37nWumSrMAk3Y4nCihQQZK7H7LJ9ufx4fyJu';
-   
+   public const DEBUG = false;
    /**
     * Registers a new client with eRecht24 and stores it in the database
     * 
