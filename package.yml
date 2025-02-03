@@ -1,6 +1,6 @@
 package: erecht24
 version: '1.0.0'
-author: YourName
+author: Friends Of REDAXO
 
 page:
     title: 'translate:erecht24'
