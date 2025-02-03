@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+use \FriendsOfRedaxo\eRecht24\eRecht24Client;
+
 class rex_api_erecht24_push extends rex_api_function
 {
     protected  $published = true;
@@ -70,7 +72,7 @@ class rex_api_erecht24_push extends rex_api_function
             $handler = new eRecht24\RechtstexteSDK\LegalTextHandler(
                 $domain['api_key'],
                 $type,
-                rex_erecht24_client::PLUGIN_KEY
+                eRecht24Client::PLUGIN_KEY
             );
 
             $document = $handler->importDocument();
@@ -85,7 +87,7 @@ class rex_api_erecht24_push extends rex_api_function
                 $this->sendError(500, $handler->getLastErrorMessage('de') ?? 'Unknown error from eRecht24 API');
             }
 
-                            // Store text in database
+            // Store text in database
             try {
                 $table = rex::getTable('erecht24_texts');
                 
@@ -106,7 +108,7 @@ class rex_api_erecht24_push extends rex_api_function
                 $sql->setValue('type', $type);
                 $sql->setValue('html_de', $document->getHtmlDE() ?? '');
                 $sql->setValue('html_en', $document->getHtmlEN() ?? '');
-				$sql->setValue('last_fetch', date('Y-m-d H:i:s'));
+                $sql->setValue('last_fetch', date('Y-m-d H:i:s'));
                 $sql->setValue('updatedate', date('Y-m-d H:i:s'));
 
                 if ($exists) {
