@@ -15,10 +15,13 @@ Mehr Informationen unter: [https://www.e-recht24.de](https://www.e-recht24.de)
 ## Features
 - Aktualisierung der Texte via Push API von eRecht24 (Sync-Button)
 - Unterstützung mehrerer Domains
+- Registrierung über API-Key bei eRecht24
+- Löschen und Deregistrierung der Domain inkl. Löschen der Texte lokal. 
 - Mehrsprachige Texte (DE/EN)
 - Einfache Integration via PHP-Methoden
 - Nutzung der eRecht24 SDK
 - Objektorientiertes Design mit Namespace-Support
+
 
 ## Installation
 1. Im REDAXO Installer das Addon "erecht24" herunterladen.
