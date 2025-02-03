@@ -169,7 +169,7 @@ class eRecht24Client
 ```
 
 ## Texte aktualisieren
-Die Texte werden automatisch via Push-API von eRecht24 aktualisiert, sobald sie im eRecht24 Projekt Manager geändert werden.
+Die Texte werden via Push-API von eRecht24 aktualisiert, sobald sie im eRecht24 Projekt Manager geändert werden und Sync gedrückt wurde.
 
 ## Mehrere Domains
 Das Addon unterstützt mehrere Domains. Jede Domain benötigt:
