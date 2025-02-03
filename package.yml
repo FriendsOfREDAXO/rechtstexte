@@ -5,7 +5,7 @@ author: YourName
 page:
     title: 'translate:erecht24'
     perm: admin
-    icon: rex-icon fa-legal
+    icon: rex-icon fa-section
     subpages:
         settings: { title: 'translate:settings' }
         preview: { title: 'translate:preview', hidden: true }
