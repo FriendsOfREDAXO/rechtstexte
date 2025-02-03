@@ -1,6 +1,8 @@
 <?php
 $addon = rex_addon::get('erecht24');
 
+use \FriendsOfRedaxo\eRecht24\eRecht24Client;
+
 $content = '';
 $buttons = '';
 
@@ -18,41 +20,8 @@ if ('1' == rex_post('formsubmit', 'string') && !$csrfToken->isValid()) {
         echo rex_view::error($addon->i18n('missing_fields'));
     } else {
         try {
-            // Initialize API handler
-            $apiHandler = new eRecht24\RechtstexteSDK\ApiHandler($apiKey, rex_erecht24_client::PLUGIN_KEY);
-
-            // Create new client
-            $pushUrl = rtrim(rex::getServer(), '/') . '/index.php?rex-api-call=erecht24_push';
-            rex_logger::factory()->info('Push URL: ' . $pushUrl);
-            
-            $client = (new eRecht24\RechtstexteSDK\Model\Client())
-                ->setPushUri($pushUrl)
-                ->setPushMethod('POST')                     
-                ->setCms('REDAXO')                       
-                ->setCmsVersion(rex::getVersion())
-                ->setPluginName('redaxo/erecht24')
-                ->setAuthorMail(rex::getErrorEmail());
-
-            // Register client with eRecht24
-            $registeredClient = $apiHandler->createClient($client);
-
-            if (!$apiHandler->isLastResponseSuccess()) {
-                throw new rex_exception($apiHandler->getLastErrorMessage('de') ?? 'Unknown error');
-            }
-
-            // Store in database
-            $sql = rex_sql::factory();
-            $sql->setTable(rex::getTable('erecht24'));
-            $sql->setValue('domain', $domain);
-            $sql->setValue('api_key', $apiKey);
-            $sql->setValue('client_id', $registeredClient->getClientId());
-            $sql->setValue('secret', $registeredClient->getSecret());
-            $sql->setValue('updatedate', date('Y-m-d H:i:s'));
-            $sql->setValue('createdate', date('Y-m-d H:i:s'));
-            $sql->insert();
-
+            eRecht24Client::register($domain, $apiKey);
             echo rex_view::success($addon->i18n('domain_added'));
-
         } catch (Throwable $e) {
             echo rex_view::error($e->getMessage());
         }
@@ -62,34 +31,8 @@ if ('1' == rex_post('formsubmit', 'string') && !$csrfToken->isValid()) {
 // Handle delete
 if (rex_get('func', 'string') === 'delete' && ($domain = rex_get('domain', 'string'))) {
     try {
-        // Get client info
-        $sql = rex_sql::factory();
-        $client = $sql->setQuery('SELECT * FROM ' . rex::getTable('erecht24') . ' WHERE domain = :domain', ['domain' => $domain])->getArray();
-
-        if (!empty($client)) {
-            $client = $client[0];
-            
-            // Delete from eRecht24
-            if ($client['api_key'] && $client['client_id']) {
-                $apiHandler = new eRecht24\RechtstexteSDK\ApiHandler($client['api_key'], rex_erecht24_client::PLUGIN_KEY);
-                $apiHandler->deleteClient((int)$client['client_id']);
-            }
-
-            // Delete from database
-            rex_sql::factory()
-                ->setTable(rex::getTable('erecht24'))
-                ->setWhere(['domain' => $domain])
-                ->delete();
-
-            // Delete texts
-            rex_sql::factory()
-                ->setTable(rex::getTable('erecht24_texts'))
-                ->setWhere(['domain' => $domain])
-                ->delete();
-
-            echo rex_view::success($addon->i18n('domain_deleted'));
-        }
-
+        eRecht24Client::unregister($domain);
+        echo rex_view::success($addon->i18n('domain_deleted'));
     } catch (Throwable $e) {
         echo rex_view::error($e->getMessage());
     }

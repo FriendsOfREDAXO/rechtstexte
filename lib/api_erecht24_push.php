@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+use \FriendsOfRedaxo\eRecht24\eRecht24Client;
+
 class rex_api_erecht24_push extends rex_api_function
 {
     protected  $published = true;
@@ -16,7 +18,9 @@ class rex_api_erecht24_push extends rex_api_function
 
             // Debug: Log incoming request
             $rawInput = file_get_contents('php://input');
-            rex_logger::logError(1, 'Incoming request: ' . $rawInput, __FILE__, __LINE__);
+            if (eRecht24Client::DEBUG) {
+                rex_logger::logError(1, 'Incoming request: ' . $rawInput, __FILE__, __LINE__);
+            }
 
             // Get POST data as JSON
             if (!$rawInput) {
@@ -34,7 +38,9 @@ class rex_api_erecht24_push extends rex_api_function
             $type = $data['erecht24_type'] ?? null;
 
             // Debug: Log parsed data
-            rex_logger::logError(1, 'Parsed data - Secret: ' . $secret . ', Type: ' . $type, __FILE__, __LINE__);
+            if (eRecht24Client::DEBUG) {
+                rex_logger::logError(1, 'Parsed data - Secret: ' . $secret . ', Type: ' . $type, __FILE__, __LINE__);
+            }
 
             if (!$secret || !$type) {
                 $this->sendError(422, 'Missing required fields');
@@ -45,7 +51,9 @@ class rex_api_erecht24_push extends rex_api_function
             $domain = $sql->setQuery('SELECT domain, api_key FROM ' . rex::getTable('erecht24') . ' WHERE secret = :secret LIMIT 1', ['secret' => $secret])->getArray();
             
             // Debug: Log domain lookup
-            rex_logger::logError(1, 'Domain lookup result: ' . print_r($domain, true), __FILE__, __LINE__);
+            if (eRecht24Client::DEBUG) {
+                rex_logger::logError(1, 'Domain lookup result: ' . print_r($domain, true), __FILE__, __LINE__);
+            }
 
             if (empty($domain)) {
                 $this->sendError(401, 'Invalid secret');
@@ -64,28 +72,32 @@ class rex_api_erecht24_push extends rex_api_function
             $domain = $domain[0];
             
             // Debug: Log API initialization
-            rex_logger::logError(1, 'Initializing API handler with key: ' . substr($domain['api_key'], 0, 8) . '...', __FILE__, __LINE__);
+            if (eRecht24Client::DEBUG) {
+                rex_logger::logError(1, 'Initializing API handler with key: ' . substr($domain['api_key'], 0, 8) . '...', __FILE__, __LINE__);
+            }
             
             // Create API handler
             $handler = new eRecht24\RechtstexteSDK\LegalTextHandler(
                 $domain['api_key'],
                 $type,
-                rex_erecht24_client::PLUGIN_KEY
+                eRecht24Client::PLUGIN_KEY
             );
 
             $document = $handler->importDocument();
 
             // Debug: Log API response
-            rex_logger::logError(1, 'API Response success: ' . ($handler->isLastResponseSuccess() ? 'true' : 'false'), __FILE__, __LINE__);
-            if (!$handler->isLastResponseSuccess()) {
-                rex_logger::logError(1, 'API Error: ' . $handler->getLastErrorMessage('de'), __FILE__, __LINE__);
+            if (eRecht24Client::DEBUG) {
+                rex_logger::logError(1, 'API Response success: ' . ($handler->isLastResponseSuccess() ? 'true' : 'false'), __FILE__, __LINE__);
+                if (!$handler->isLastResponseSuccess()) {
+                    rex_logger::logError(1, 'API Error: ' . $handler->getLastErrorMessage('de'), __FILE__, __LINE__);
+                }
             }
 
             if (!$handler->isLastResponseSuccess()) {
                 $this->sendError(500, $handler->getLastErrorMessage('de') ?? 'Unknown error from eRecht24 API');
             }
 
-                            // Store text in database
+            // Store text in database
             try {
                 $table = rex::getTable('erecht24_texts');
                 
@@ -106,7 +118,7 @@ class rex_api_erecht24_push extends rex_api_function
                 $sql->setValue('type', $type);
                 $sql->setValue('html_de', $document->getHtmlDE() ?? '');
                 $sql->setValue('html_en', $document->getHtmlEN() ?? '');
-				$sql->setValue('last_fetch', date('Y-m-d H:i:s'));
+                $sql->setValue('last_fetch', date('Y-m-d H:i:s'));
                 $sql->setValue('updatedate', date('Y-m-d H:i:s'));
 
                 if ($exists) {
@@ -119,7 +131,9 @@ class rex_api_erecht24_push extends rex_api_function
                     $sql->insert();
                 }
             } catch (Throwable $e) {
-                rex_logger::logError(1, 'Database error: ' . $e->getMessage(), __FILE__, __LINE__);
+                if (eRecht24Client::DEBUG) {
+                    rex_logger::logError(1, 'Database error: ' . $e->getMessage(), __FILE__, __LINE__);
+                }
                 $this->sendError(500, 'Database error: ' . $e->getMessage());
             }
 
@@ -128,7 +142,9 @@ class rex_api_erecht24_push extends rex_api_function
 
         } catch (Throwable $e) {
             // Log error
-            rex_logger::logError(1, 'Uncaught error: ' . $e->getMessage() . "\n" . $e->getTraceAsString(), __FILE__, __LINE__);
+            if (eRecht24Client::DEBUG) {
+                rex_logger::logError(1, 'Uncaught error: ' . $e->getMessage() . "\n" . $e->getTraceAsString(), __FILE__, __LINE__);
+            }
             $this->sendError(500, 'Internal server error: ' . $e->getMessage());
         }
     }
