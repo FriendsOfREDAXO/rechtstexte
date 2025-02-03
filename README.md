@@ -178,17 +178,6 @@ Das Addon unterstützt mehrere Domains. Jede Domain benötigt:
 1. Ein eigenes Projekt im eRecht24 Projekt Manager
 2. Einen eigenen API-Schlüssel
 
-## Debug-Modus
-Für die Entwicklung kann der Debug-Modus aktiviert werden:
-```php
-use FriendsOfRedaxo\eRecht24\eRecht24Client;
-
-// In der boot.php oder an anderer geeigneter Stelle
-if (rex::isDebugMode()) {
-    define('ERECHT24_DEBUG', true);
-}
-```
-
 ## Rechtliche Hinweise
 Die API und das SDK von eRecht24 unterliegen den API-Nutzungsbedingungen von eRecht24 GmbH & Co. KG. Weitere Informationen zur API-Nutzung finden sich im Vendor-Ordner.
 REDAXO-Code-Bestandteile fallen unter MIT-Lizenz. API-spezifischer Code fällt unter der eRecht24 Lizenz.
