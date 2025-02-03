@@ -92,7 +92,6 @@ if (eRecht24::hasText($id, 'imprint', 'en')) {
 ```php
 use FriendsOfRedaxo\eRecht24\eRecht24;
 
-// In der template.php oder einer Modul-Ausgabe
 $domain = 'example.com';
 
 // Impressum einbinden
