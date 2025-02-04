@@ -1,6 +1,7 @@
 package: erecht24
-version: '1.0.0'
-author: Friends Of REDAXO
+version: '1.0.1'
+author: 'Friends Of REDAXO'
+supportpage: https://github.com/FriendsOfREDAXO/erecht24
 
 page:
     title: 'translate:erecht24'
